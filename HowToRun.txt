@@ -1,0 +1,9 @@
+1. Set up virtual env (venv) and activate install
+
+>  pip install virtualenv (installing venv)
+>  virtualenv name (creating venv)
+>  env\Scripts\activate.bat (Activating venv)
+
+2. install requirements.txt
+
+# 3. in cmd set FLASK_APP = social_media.py (inside "Mini Project/Social_Media" folder) 
