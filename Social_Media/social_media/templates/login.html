@@ -1,0 +1,60 @@
+
+<!-- Using Base Template -->
+{% extends "Base.html" %}
+
+<!-- Overiding contents of block content in Base.html -->
+{% block content %}
+    <div  class="p-4">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="card">
+                <div class="card-header p-3 fs-5 bg-dark-cyan text-center">Log In</div>
+                <div class="card-body ms-4 me-4">
+                    <div class="form-group pt-2">
+                        {{ form.email.label(class="form-control-label") }}
+                        <!-- Check if field invalid -->
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span> {{ error }} </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group pt-2">
+                        {{ form.password.label(class="form-control-label") }}
+                        <!-- Check if field invalid -->
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span> {{ error }} </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group pt-3">
+                        {{ form.remember(class="form-check-input") }}
+                        {{ form.remember.label(class="form-check-label") }}
+                    </div>
+                </div>
+                <div class="form-group text-center p-3">
+                    {{ form.submit(class="btn bg-dark-cyan p-2 ps-4 pe-4") }}
+                </div>
+                <small class="text-muted p-2 ps-4">
+                    <a href="#"> Forgot Password ?</a>
+                </small>
+            </div>
+        </form>
+    </div>
+    <div class="pt-2 ps-4">
+        <small>
+            Need an Account ? <a class="ms-2" href="{{ url_for('signup') }}">Sign Up</a>
+        </small>
+    </div>
+{% endblock content %}

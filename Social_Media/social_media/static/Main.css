@@ -1,0 +1,53 @@
+/* Coolors Exported Palette - https://coolors.co/ff9f1c-ffbf69-ffffff-cbf3f0-2ec4b6 */
+
+/* CSS HEX */
+/* --orange-peel: #ff9f1cff;
+--mellow-apricot: #ffbf69ff;
+--white: #ffffffff;
+
+
+
+--light-cyan: #cbf3f0ff;
+--tiffany-blue: #2ec4b6ff; 
+
+
+--dark grey: #302F4D; 
+
+--ming: #16697aff;
+--magic-mint: #95f2d9ff;*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&display=swap'); */
+
+*{
+    font-family: 'Albert Sans', sans-serif;
+}
+
+a 
+{
+  all: unset;
+}
+a:hover { color: unset; }
+
+.bg-dark-cyan{
+    background-color:#16697aff;
+    color: #fff;
+}
+
+.content{
+    color: rgb(77, 81, 82);
+}
+
+.profile-lg
+{
+  vertical-align: middle;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+.profile
+{
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

@@ -1,0 +1,93 @@
+1. Set up virtual env (venv) and activate install
+
+>  pip install virtualenv (installing venv)
+>  virtualenv name (creating venv)
+>  env\Scripts\activate.bat (Activating venv)
+
+2. install requirements.txt
+> pip install -r requirements.txt
+
+Creating requirements.txt
+> pip freeze > requirements.txt
+
+# 3. in cmd  (inside "Mini Project/Social_Media/Social_Media" folder) 
+
+*******************************************
+RUN THESE ALL
+*******************************************
+
+cd Social_Media
+
+
+env\Scripts\activate.bat
+set FLASK_APP=run.py
+set FLASK_DEBUG=true
+set FLASK_ENV = "development"
+
+cd Social_Media
+flask run
+
+********************************************
+
+
+# Working with Database (Testing)  (in python terminal 1st path) (*** Run VS Code  As ADMIN ***)
+
+from social_media import db
+db.create_all()
+from social_media.models import User, Post
+
+
+user_1 = User(username='Komal', email='ktthakur240@gmail.com', password='UserTesting123')
+db.session.add(user_1)
+user_2 = User(username='Sneha', email='sneha123@gmail.com', password='UserTesting123')
+db.session.add(user_2)
+db.session.commit()
+
+
+User.query.all()
+User.query.first()
+User.query.filter_by(username='Komal').first()
+user = User.query.filter_by(username='Komal').first()
+user.id
+user= User.query.get(1)
+user
+user.posts
+
+
+post_1 = Post(content='First Post Content!', user_id=user.id)
+post_2 = Post(content='Second Post Content!', user_id=user.id)
+
+db.session.add(post_1)
+db.session.add(post_2)
+
+db.session.commit()
+
+user.posts
+
+for post in user.posts:
+    print(post.content)
+
+post = Post.query.first()
+post
+post.user_id
+post.author
+
+db.drop_all() # clear all data in Database
+db.create_all() # clear database again after delelting it
+
+
+
+# Creating DB File Main (delelte sit.db sqlite file from folder)
+
+from social_media import db
+
+from social_media.models import User, Post
+
+db.create_all()
+
+User.query.all()
+
+#clear db all data
+from social_media import db
+db.drop_all()
+db.create_all()
