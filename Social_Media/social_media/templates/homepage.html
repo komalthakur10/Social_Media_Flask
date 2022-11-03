@@ -1,0 +1,31 @@
+<!-- Using Base Template -->
+{% extends "Base.html" %}
+
+<!-- Overiding contents of block content in Base.html -->
+
+<!-- Using Dummy Data -->
+{% block content %}
+    <div class="border-start border-end ps-4 pe-4">
+        {% for post in posts %}
+
+            <!-- <p>By {{ post.author }} on {{ post.date_posted }}</p>
+            <p>{{ post.content }}</p> -->
+
+            <a href="{{ url_for('post', post_id=post.id) }}">
+                <div class="card m-4">
+                    <div class="card-header fs-5 text-end">
+                        <div class="text-start"> 
+                            <img class="profile m-2 " src="{{ url_for('static', filename ='Profile/'+post.author.image_file) }}" alt="Profile" class="profile"> 
+                            {{ post.author.username }} 
+                        </div>
+                        <small class="text-muted fs-6">on {{ post.date_posted.strftime("%d-%m-%Y   %H:%M:%S") }}</small>
+                    </div>
+                    <div class="card-body content">
+                        {{ post.content }}
+                    </div>    
+                </div>
+            </a>
+
+        {% endfor %}
+    </div>
+{% endblock content %}
